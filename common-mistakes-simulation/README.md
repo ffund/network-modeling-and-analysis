@@ -155,7 +155,7 @@ Plot the results: in a single plot, put ρ on the x-axis, and mean queue size on
 In our first experiment (with μ=244.14), we assume that:
 
 * The packet sizes are exponentially distributed with mean size 512 bytes, so that the mean service rate at the router is exponentially distributed with mean 244.1 packets/second.
-* The traffic is Poisson with λ = 200 packets/second (at least, for the initial experiment that we ran on each platform).
+* The traffic is Poisson with λ = 200 packets/second (at least, for the initial experiment).
 * The queue capacity is effectively infinite (i.e. no packets are dropped).
 
 Now, we will try and validate how well these assumptions are realized in our experiments. 
