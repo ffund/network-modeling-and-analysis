@@ -5,7 +5,7 @@ We know that some common mistakes made by experimenters include:
 * failure to validate the model/experiment parameters, especially "hidden defaults" in simulation platforms
 * failure to set up a valid random experiment
 
-We are going to see the impact of these mistakes in a basic experiment involving an M/M/1 queue.
+We are going to see the impact of these mistakes in a basic _simulation_ experiment involving an M/M/1 queue.
 
 
 ### Background
