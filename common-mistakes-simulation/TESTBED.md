@@ -239,7 +239,7 @@ Try running it now, on the router node, while you repeat your D-ITG experiment. 
 ```
 
 
-After an experiment is over, you can process this file with your data analysis tool of choice. For your convenience, if you have redirected the output to `router.txt`, you can retrieve the average queue size (in packets) with:
+After an experiment is over, you can process this file with your data analysis tool of choice. For your convenience, if you have redirected the output to `router.txt`, you can retrieve the average queue occupancy (in packets) with:
 
 ```
 cat router.txt | sed 's/\p / /g' | awk  '{ sum += $54 } END { if (NR > 0) print sum / NR }'
@@ -324,6 +324,9 @@ Finally, validate the assumption that the queue size is effectively infinite - m
 
 There is one more thing we need to verify: that, if we run the experiment repeatedly, we will have a valid stochastic experiment. Run the D-ITG experiment again with exactly the same arguments as before. Then, compare the sequence of packet sizes and interarrival times observed by tshark - are they the same from one experiment to the next, or are they different? 
 
+**Lab report**: Comment on your observations.
+
+
 
 ### Putting it together
 
@@ -338,12 +341,19 @@ Given that you have already set up the queue as described above, to run a single
 * Start `ITGRecv` on the server node.
 * Start `ITGSend` with the appropriate arguments and with a long experiment duration (e.g. 240 seconds) on the client node.
 * Start the queue monitor script on the router node, and let it run until just before the experiment is over. (Don't let it keep running after the experiment is over.)
-* Record the mean queue size from your experiment.
+* Record the mean queue occupancy from your experiment.
 
-**Lab report**: Complete this table for these values of λ: 225.0, 200.0, 175.0, 150.0, 125.0. In the "Mean queue size - simulation" column, fill in the mean result across all repetitions from 1-5 for that value of ρ, *and* in parentheses, the standard deviation of the mean across all repititions from 1-5 for that value of ρ.
+**Lab report**: Complete this table for these values of λ: 225.0, 200.0, 175.0, 150.0, 125.0. In the "Mean queue occupancy - testbed" column, fill in the mean result across all repetitions from 1-5 for that value of ρ, *and* in parentheses, the standard deviation of the mean across all repititions from 1-5 for that value of ρ.
 
-| ρ  | Mean queue size - simulation | Mean queue size - analytical model |
+| ρ  | Mean queue occupancy - testbed | Mean queue occupancy - analytical model |
 | ------------- | ------------- | ------------- |
 | .. | .. | .. | ..
 | .. | .. | .. | ..
 
+
+
+**Lab report**: Create a plot with ρ on the horizontal axis and mean queue occupancy on the vertical axis. 
+
+* Draw a red line representing the behavior predicted by the analytical model.
+* Add the results of your testbed experiment at a series of blue markers.
+* Add the results of your simulation experiment as a series of green markers.

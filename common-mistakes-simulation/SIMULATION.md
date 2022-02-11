@@ -67,7 +67,7 @@ The "qm.out" file is a trace file that specifically monitors the queue. Its colu
 11. Drops (bytes)
 
 
-We are mainly interested in the mean value of the fifth column (queue size in packets) - we can use `awk` to compute this directly. Run
+We are mainly interested in the mean value of the fifth column (queue occupancy in packets) - we can use `awk` to compute this directly. Run
 
 ```
 cat qm.out | awk  '{ sum += $5 } END { if (NR > 0) print sum / NR }' 
@@ -95,7 +95,7 @@ When you have made these changes, use Ctrl+O to write out the file (and Enter to
 ns mm1.tcl # run it
 ```
 
-and get the mean value of queue size in packets:
+and get the mean value of queue occupancy in packets:
 
 ```
 cat qm.out | awk  '{ sum += $5 } END { if (NR > 0) print sum / NR }' 
@@ -106,7 +106,7 @@ Compare the value measured by your simulation experiment with the value predicte
 ### Compare simulation and analytical model 
 
 
-The analytical model tells us about the behavior of the queue as ρ varies. We will attempt to confirm this by simulation - we will vary ρ and measure the effect on mean queue size.
+The analytical model tells us about the behavior of the queue as ρ varies. We will attempt to confirm this by simulation - we will vary ρ and measure the effect on mean queue occupancy.
 
 To make it easier to run, we will modify the script so that `lambda` is passed as a command line argument. Change the `set lambda` line to read
 
@@ -120,14 +120,14 @@ Then, you will run the script with a single argument - the value of λ, such as
 ns mm1.tcl 200.0
 ```
 
-Run the `ns2` script and find the mean value of queue size for the following values of λ: 225.0, 200.0, 175.0, 150.0, 125.0. (Note that λ must be a float value, so you must include the .0 at the end.)
+Run the `ns2` script and find the mean value of queue occupancy for the following values of λ: 225.0, 200.0, 175.0, 150.0, 125.0. (Note that λ must be a float value, so you must include the .0 at the end.)
 
 
-Plot the results: in a single plot, put ρ on the x-axis, and mean queue size on the y-axis. Make the y-axis a log10 scale. Plot each of the six simulation results as a point, and plot the prediction of the analytical model as a line.
+Plot the results: in a single plot, put ρ on the x-axis, and mean queue occupancy on the y-axis. Make the y-axis a log10 scale. Plot each of the six simulation results as a point, and plot the prediction of the analytical model as a line.
 
 **Lab report**: Create a plot, and also make a table of values (like the one here, but with values filled in to each cell):
 
-| ρ  | Mean queue size - simulation | Mean queue size - analytical model |
+| ρ  | Mean queue occupancy - simulation | Mean queue occupancy - analytical model |
 | ------------- | ------------- | ------------- |
 | .. | .. | .. | ..
 | .. | .. | .. | ..
@@ -203,14 +203,14 @@ Third, validate the assumption that the queue size is effectively infinite - at 
 
 ### Repeating the experiment
 
-Now that we have made some changes to our script, we will try to confirm the analytical model again. Run the `ns2` script and find the mean value of queue size for the same values of λ: 225.0, 200.0, 175.0, 150.0, 125.0. 
+Now that we have made some changes to our script, we will try to confirm the analytical model again. Run the `ns2` script and find the mean value of queue occupancy for the same values of λ: 225.0, 200.0, 175.0, 150.0, 125.0. 
 
 
-Plot the results: in a single plot, put ρ on the x-axis, and mean queue size on the y-axis. Make the y-axis a log10 scale. Plot each of the six simulation results as a point, and plot the prediction of the analytical model as a line.
+Plot the results: in a single plot, put ρ on the x-axis, and mean queue occupancy on the y-axis. Make the y-axis a log10 scale. Plot each of the six simulation results as a point, and plot the prediction of the analytical model as a line.
 
 **Lab report**: Show your plot, and also include a table of values (like the one here, but will values filled in to each cell):
 
-| ρ  | Mean queue size - simulation | Mean queue size - analytical model |
+| ρ  | Mean queue occupancy - simulation | Mean queue occupancy - analytical model |
 | ------------- | ------------- | ------------- |
 | .. | .. | .. | ..
 | .. | .. | .. | ..
@@ -218,7 +218,7 @@ Plot the results: in a single plot, put ρ on the x-axis, and mean queue size on
 
 **Lab report**: Are the simulation results consistent with what is predicted by the analytical model?
 
-**Lab report**: In your previous attempt to run this experiment, you saw a _systematic bias_ in the results - the simulation results tended to show a larger queue size than the predictions of the analytical model. What was the reason for this systematic bias? Would you expect to see a systematic bias if the difference between analytical and simulation results was due to random variation?
+**Lab report**: In your previous attempt to run this experiment, you saw a _systematic bias_ in the results - the simulation results tended to show a larger queue occupancy than the predictions of the analytical model. What was the reason for this systematic bias? Would you expect to see a systematic bias if the difference between analytical and simulation results was due to random variation?
 
 
 
@@ -279,15 +279,15 @@ ns mm1.tcl 200.0 1
 
 where independent results will be generated when you supply different values for the second argument. 
 
-Run your script with different values of "rep" - try all the integer values in the range 1-5 - and compute the mean queue size for each. Verify that different values of "rep" give different results.
+Run your script with different values of "rep" - try all the integer values in the range 1-5 - and compute the mean queue occupancy for each. Verify that different values of "rep" give different results.
 
 Note: ns2 uses a multiple recursive generator called MRG32k3a, which contains streams from which numbers picked sequentially seem to be random, uniformly distributed. These in turn are transformed to create variates of other desired distributions. More information about the current random number generator in ns2 is available [here](http://www.isi.edu/nsnam/ns/doc/node267.html).
 
 
-**Lab report**: Complete this table again, but in the "Mean queue size - simulation" column, fill in the mean result across all repetitions from 1-5 for that value of ρ, *and* in parentheses, the standard deviation of the mean across all repititions from 1-5 for that value of ρ.
+**Lab report**: Complete this table again for these values of λ: 225.0, 200.0, 175.0, 150.0, 125.0. But in the "Mean queue occupancy - simulation" column, fill in the mean result across all repetitions from 1-5 for that value of ρ, *and* in parentheses, the standard deviation of the mean across all repititions from 1-5 for that value of ρ.
 
 
-| ρ  | Mean queue size - simulation | Mean queue size - analytical model |
+| ρ  | Mean queue occupancy - simulation | Mean queue occupancy - analytical model |
 | ------------- | ------------- | ------------- |
 | .. | .. | .. | ..
 | .. | .. | .. | ..
