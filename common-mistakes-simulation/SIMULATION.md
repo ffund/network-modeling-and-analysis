@@ -1,4 +1,4 @@
-## Common mistakes: the simulation experiment
+## Simulation experiment
 
 We know that some common mistakes made by experimenters include:
 
@@ -108,27 +108,19 @@ Compare the value measured by your simulation experiment with the value predicte
 
 The analytical model tells us about the behavior of the queue as ρ varies. We will attempt to confirm this by simulation - we will vary ρ and measure the effect on mean queue size.
 
-To make it easier to run, we will modify the script so that `mu` is passed as a command line argument. Change the `set mu` line to read
+To make it easier to run, we will modify the script so that `lambda` is passed as a command line argument. Change the `set lambda` line to read
 
 ```
-set mu [lindex $argv 0] 
+set lambda [lindex $argv 0] 
 ```
 
-Then, you will run the script with a single argument - the value of μ, such as 
+Then, you will run the script with a single argument - the value of λ, such as 
 
 ```
-ns mm1.tcl 244.14
+ns mm1.tcl 200.0
 ```
 
-Run the `ns2` script and find the mean value of queue size for the following values of ρ. (Note that μ must be a float value, so you must include the .0 at the end as shown below.)
-
-
-* ρ=0.2  (μ=1000.0)
-* ρ=0.4  (μ=500.0)
-* ρ=0.6  (μ=333.333)
-* ρ=0.8  (μ=250.0)
-* ρ=0.85 (μ=235.294)
-* ρ=0.9  (μ=222.222)
+Run the `ns2` script and find the mean value of queue size for the following values of λ: 225.0, 200.0, 175.0, 150.0, 125.0. (Note that λ must be a float value, so you must include the .0 at the end.)
 
 
 Plot the results: in a single plot, put ρ on the x-axis, and mean queue size on the y-axis. Make the y-axis a log10 scale. Plot each of the six simulation results as a point, and plot the prediction of the analytical model as a line.
@@ -137,13 +129,7 @@ Plot the results: in a single plot, put ρ on the x-axis, and mean queue size on
 
 | ρ  | Mean queue size - simulation | Mean queue size - analytical model |
 | ------------- | ------------- | ------------- |
-| 0.2  |  | |
-| 0.4  |  | |
-| 0.6  |  | |
-| 0.8  |  | |
-| 0.85  |  | |
-| 0.9  |  | |
-
+|  |  | |
 
 **Lab report**: Are the simulation results consistent with what is predicted by the analytical model? If not, to what can you attribute the difference?
 
@@ -165,7 +151,7 @@ We're going to repeat our initial "basic" experiment, but we want to make sure e
 Then repeat that first experiment:
 
 ```
-ns mm1.tcl 244.14
+ns mm1.tcl 200.0
 ```
 
 Then, from the trace file, extract the timestamp and size of each received packet:
@@ -216,14 +202,7 @@ Third, validate the assumption that the queue size is effectively infinite - at 
 
 ### Repeating the experiment
 
-Now that we have made some changes to our script, we will try to confirm the analytical model again. Run the `ns2` script and find the mean value of queue size for the following values of ρ:
-
-* ρ=0.2  (μ=1000.0)
-* ρ=0.4  (μ=500.0)
-* ρ=0.6  (μ=333.333)
-* ρ=0.8  (μ=250.0)
-* ρ=0.85 (μ=235.294)
-* ρ=0.9  (μ=222.222)
+Now that we have made some changes to our script, we will try to confirm the analytical model again. Run the `ns2` script and find the mean value of queue size for the same values of λ: 225.0, 200.0, 175.0, 150.0, 125.0. 
 
 
 Plot the results: in a single plot, put ρ on the x-axis, and mean queue size on the y-axis. Make the y-axis a log10 scale. Plot each of the six simulation results as a point, and plot the prediction of the analytical model as a line.
@@ -232,12 +211,7 @@ Plot the results: in a single plot, put ρ on the x-axis, and mean queue size on
 
 | ρ  | Mean queue size - simulation | Mean queue size - analytical model |
 | ------------- | ------------- | ------------- |
-| 0.2  |  | |
-| 0.4  |  | |
-| 0.6  |  | |
-| 0.8  |  | |
-| 0.85  |  | |
-| 0.9  |  | |
+|  |  | |
 
 
 **Lab report**: Are the simulation results consistent with what is predicted by the analytical model?
@@ -298,24 +272,19 @@ $pktSize use-rng $rng2
 Now, you will run your simulation with another argument, e.g.
 
 ```
-ns mm1.tcl 244.14 1
+ns mm1.tcl 200.0 1
 ```
 
 where independent results will be generated when you supply different arguments. 
 
-Run your script with different values of "rep" - try all the integer values in the range 1-20 - and compute the mean queue size for each. Verify that different values of "rep" give different results.
+Run your script with different values of "rep" - try all the integer values in the range 1-5 - and compute the mean queue size for each. Verify that different values of "rep" give different results.
 
 Note: ns2 uses a multiple recursive generator called MRG32k3a, which contains streams from which numbers picked sequentially seem to be random, uniformly distributed. These in turn are transformed to create variates of other desired distributions. More information about the current random number generator in ns2 is available [here](http://www.isi.edu/nsnam/ns/doc/node267.html).
 
 
-**Lab report**: Complete this table again, but in the "Mean queue size - simulation" column, fill in the mean result across all repetitions from 1-20 for that value of ρ, *and* in parentheses, the standard deviation of the mean across all repititions from 1-20 for that value of ρ.
+**Lab report**: Complete this table again, but in the "Mean queue size - simulation" column, fill in the mean result across all repetitions from 1-5 for that value of ρ, *and* in parentheses, the standard deviation of the mean across all repititions from 1-5 for that value of ρ.
 
 
 | ρ  | Mean queue size - simulation | Mean queue size - analytical model |
 | ------------- | ------------- | ------------- |
-| 0.2  |  | |
-| 0.4  |  | |
-| 0.6  |  | |
-| 0.8  |  | |
-| 0.85  |  | |
-| 0.9  |  | |
+|  |  | |
