@@ -133,7 +133,7 @@ Run the `ns2` script and find the mean value of queue size for the following val
 
 Plot the results: in a single plot, put ρ on the x-axis, and mean queue size on the y-axis. Make the y-axis a log10 scale. Plot each of the six simulation results as a point, and plot the prediction of the analytical model as a line.
 
-**Lab report**: Show your plot, and also include a table of values (like the one here, but will values filled in to each cell):
+**Lab report**: Create a plot, and also make a table of values (like the one here, but with values filled in to each cell):
 
 | ρ  | Mean queue size - simulation | Mean queue size - analytical model |
 | ------------- | ------------- | ------------- |
@@ -160,7 +160,7 @@ In our first experiment (with μ=244.14), we assume that:
 
 Now, we will try and validate how well these assumptions are realized in our experiments. 
 
-We're going to repeat our initial "basic" experiment, but we want to make sure enough packets are generated to validate the probabilistic distribution - so change the line `$ns at 1000.0 "finish` to `$ns at 10000.0 "finish`, making the experiment 10x longer. 
+We're going to repeat our initial "basic" experiment, but we want to make sure enough packets are generated to validate the probabilistic distribution - so change the line `$ns at 1000.0 "finish"` to `$ns at 10000.0 "finish"`, making the experiment 10x longer. 
 
 Then repeat that first experiment:
 
@@ -305,9 +305,17 @@ where independent results will be generated when you supply different arguments.
 
 Run your script with different values of "rep" - try all the integer values in the range 1-20 - and compute the mean queue size for each. Verify that different values of "rep" give different results.
 
-Note: ns2 uses a multiple recursive generator called MRG32k3a, which contains streams from which numbers picked sequentially seem to be random (uniformly distributed.) These in turn are transformed to create variates of other desired distributions. More information about the current random number generator in ns2 is available [here](http://www.isi.edu/nsnam/ns/doc/node267.html).
+Note: ns2 uses a multiple recursive generator called MRG32k3a, which contains streams from which numbers picked sequentially seem to be random, uniformly distributed. These in turn are transformed to create variates of other desired distributions. More information about the current random number generator in ns2 is available [here](http://www.isi.edu/nsnam/ns/doc/node267.html).
 
 
-**Lab report**: List the mean queue size for each value of "rep". What is the mean and standard deviation across these 20 values? 
+**Lab report**: Complete this table again, but in the "Mean queue size - simulation" column, fill in the mean result across all repetitions from 1-20 for that value of ρ, *and* in parentheses, the standard deviation of the mean across all repititions from 1-20 for that value of ρ.
 
 
+| ρ  | Mean queue size - simulation | Mean queue size - analytical model |
+| ------------- | ------------- | ------------- |
+| 0.2  |  | |
+| 0.4  |  | |
+| 0.6  |  | |
+| 0.8  |  | |
+| 0.85  |  | |
+| 0.9  |  | |
