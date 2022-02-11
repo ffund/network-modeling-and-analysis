@@ -129,7 +129,8 @@ Plot the results: in a single plot, put ρ on the x-axis, and mean queue size on
 
 | ρ  | Mean queue size - simulation | Mean queue size - analytical model |
 | ------------- | ------------- | ------------- |
-|  |  | |
+| .. | .. | .. | ..
+| .. | .. | .. | ..
 
 **Lab report**: Are the simulation results consistent with what is predicted by the analytical model? If not, to what can you attribute the difference?
 
@@ -211,7 +212,8 @@ Plot the results: in a single plot, put ρ on the x-axis, and mean queue size on
 
 | ρ  | Mean queue size - simulation | Mean queue size - analytical model |
 | ------------- | ------------- | ------------- |
-|  |  | |
+| .. | .. | .. | ..
+| .. | .. | .. | ..
 
 
 **Lab report**: Are the simulation results consistent with what is predicted by the analytical model?
@@ -287,4 +289,5 @@ Note: ns2 uses a multiple recursive generator called MRG32k3a, which contains st
 
 | ρ  | Mean queue size - simulation | Mean queue size - analytical model |
 | ------------- | ------------- | ------------- |
-|  |  | |
+| .. | .. | .. | ..
+| .. | .. | .. | ..
