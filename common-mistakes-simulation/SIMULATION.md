@@ -275,7 +275,7 @@ Now, you will run your simulation with another argument, e.g.
 ns mm1.tcl 200.0 1
 ```
 
-where independent results will be generated when you supply different arguments. 
+where independent results will be generated when you supply different values for the second argument. 
 
 Run your script with different values of "rep" - try all the integer values in the range 1-5 - and compute the mean queue size for each. Verify that different values of "rep" give different results.
 
