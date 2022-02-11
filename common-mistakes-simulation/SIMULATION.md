@@ -242,7 +242,7 @@ for {set i 1} {$i<$rep} {incr i} {
 }
 ```
 
-The first line says to take a _second_ argument from the command line and store it in the variable "rep". (Recall that we are already passing `mu` as the first command line argument.) We then create two random number generator objects. Then, we explicitly set them to use different random substreams of the ns2 random number generator, using `next-substream`. We use the "rep" value passed from the command line to determine how many times to call `next-substream`, so that simulations run with different values of "rep" will have different random numbers.
+The first line says to take a _second_ argument from the command line and store it in the variable "rep". (Recall that we are already passing `lambda` as the first command line argument.) We then create two random number generator objects. Then, we explicitly set them to use different random substreams of the ns2 random number generator, using `next-substream`. We use the "rep" value passed from the command line to determine how many times to call `next-substream`, so that simulations run with different values of "rep" will have different random numbers.
 
 We still need to assign the random number generator objects to the distributions that they will feed. Underneath the line
 
