@@ -1,3 +1,3 @@
 # Network modeling and analysis experiments
 
-[Simulation experimemnt](/common-mistakes-simulation/SIMULATION)
+[Simulation experimemnt](common-mistakes-simulation/SIMULATION)
