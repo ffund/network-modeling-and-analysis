@@ -191,9 +191,9 @@ Make this change to your simulation script, then repeat the experiment and plot 
 Next, we will consider the packet interarrival time for our simulation experiment. We expect a mean interarrival time of 0.005 second (1/200 packets/second). Compute the observed mean interarrival time using the timestamps of received packets in the output file - how close is it to 0.005 seconds? Also create a plot showing the expected and observed distribution:
 
 * Find out the frequency of each interarrival time in the trace in 0.001 second bins. 
-* Plot these frequencies: put "Interarrival time in seconds" on the x-axis and "Number of packets of this size observed" on the y-axis. 
+* Plot these frequencies: put "Interarrival time in seconds" on the x-axis and "Number of times a value in this bin was observed" on the y-axis. 
 * Use a log10 scale for the y-axis, and a range of 0 to 0.1 seconds on the x-axis. 
-* On top of this plot, draw a line showing the expected number of packets of each size if interarrival times are exponentially distributed with mean 0.005 seconds. 
+* On top of this plot, draw a line showing the expected frequency of each bin, if interarrival times are exponentially distributed with mean 0.005 seconds. 
 
 **Lab report**: Show your plot of actual vs. expected interarrival times. Comment on your observations.
 
